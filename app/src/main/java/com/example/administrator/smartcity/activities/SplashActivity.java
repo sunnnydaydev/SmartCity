@@ -3,6 +3,8 @@ package com.example.administrator.smartcity.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
@@ -22,20 +24,21 @@ import butterknife.Unbinder;
 /**
  * 闪屏页面
  */
-public class SplashActivity extends Activity {
+public class SplashActivity extends BaseActivity {
     @BindView(R.id.layout_splash)
     public RelativeLayout splashLayout;//private static的类型时使用注解报错
-    private Unbinder unbinder;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setNoTitleBarAndFullScreen();
-        setContentView(R.layout.activity_splash);
-        unbinder = ButterKnife.bind(this);
-        initAnimation();
-
+    public Object getLayout() {
+        return R.layout.activity_splash;
     }
+
+    @Override
+    public void onCreate() {
+        setNoTitleBarAndFullScreen();
+        initAnimation();
+    }
+
 
     /**
      * view 动画
@@ -82,12 +85,13 @@ public class SplashActivity extends Activity {
 
                 boolean isFirstEnter = SpUtil.getBoolean(SplashActivity.this, "is_first_enter", true);
                 //判断是否第一次进入
-                if (isFirstEnter) {
-                    startActivity(new Intent(SplashActivity.this, GuideActivity.class));
-                    SpUtil.putBoolean(SplashActivity.this, "is_first_enter", false);
-                } else {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                }
+                startActivity(new Intent(SplashActivity.this, GuideActivity.class));
+//                if (isFirstEnter) {
+//                    startActivity(new Intent(SplashActivity.this, GuideActivity.class));
+//                    SpUtil.putBoolean(SplashActivity.this, "is_first_enter", false);
+//                } else {
+//                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//                }
             }
 
             @Override
@@ -96,15 +100,16 @@ public class SplashActivity extends Activity {
             }
         });
     }
-   private void setNoTitleBarAndFullScreen(){
-       requestWindowFeature(Window.FEATURE_NO_TITLE);
-       //全屏
-       getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN ,
-               WindowManager.LayoutParams. FLAG_FULLSCREEN);
-   }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
+
+    /**
+     * 全屏 且隐藏标题栏
+     * */
+    private void setNoTitleBarAndFullScreen() {
+        // requestWindowFeature(Window.FEATURE_NO_TITLE); 此句必须在setContent之前
+        getSupportActionBar().hide();
+        //全屏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
+
 }
