@@ -12,15 +12,16 @@ import butterknife.Unbinder;
 
 /**
  * Create by SunnyDay on 2019/02/20
- *
+ * <p>
  * 基类的设计
  */
 public abstract class BaseActivity extends AppCompatActivity {
     private Unbinder mBinder;
     private View mConvertView;
+
     /**
-     *  加 final 不让子类实现此方法，只能父类进行，子类传递过来交给父类处理
-     *  */
+     * 加 final 不让子类实现此方法，只能父类进行，子类传递过来交给父类处理
+     */
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +33,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         mBinder = ButterKnife.bind(this);
         onCreate();
     }
+
     // 强制子类实现的两个方法
     public abstract Object getLayout();
+
     public abstract void onCreate();
+
     /**
      * 根据实现类实现的view 此处进行处理
      */
