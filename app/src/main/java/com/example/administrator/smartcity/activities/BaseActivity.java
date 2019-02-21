@@ -1,6 +1,7 @@
 package com.example.administrator.smartcity.activities;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -40,7 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 布局处理
      */
-    public View convertView() {
+    private View convertView() {
         View view = null;
         if (getLayout() instanceof Integer) {
             view = LayoutInflater.from(this).inflate((Integer) getLayout(), null, false);
@@ -61,6 +62,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         //全屏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+    /**
+     *沉浸式状态栏
+     * */
+    public void setImmersionStatusBar(){
+        getSupportActionBar().hide();
+        View decorView = getWindow().getDecorView();
+        int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+        decorView.setSystemUiVisibility(option);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
     }
     @Override
     protected void onDestroy() {

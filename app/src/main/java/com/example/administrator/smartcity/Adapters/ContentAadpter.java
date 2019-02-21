@@ -33,6 +33,7 @@ public class ContentAadpter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         container.addView(mlist.get(position).rootView);
+        // 初始化view数据
         return mlist.get(position).rootView;
     }
 

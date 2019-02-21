@@ -16,8 +16,9 @@ public class SmartServicePage extends BasePage {
     @Override
     public void initData() {
         TextView tv = new TextView(activity);
-        tv.setText("测试");
+        tv.setText("智慧服务");
         tv.setGravity(Gravity.CENTER);
         flLayout.addView(tv);
+        tvTitle.setText("智慧服务");
     }
 }

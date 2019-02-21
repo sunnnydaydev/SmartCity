@@ -14,6 +14,8 @@ import butterknife.ButterKnife;
 
 /**
  * Create by SunnyDay on 2019/02/21
+ *
+ * Fragment的基类 完成view的初始化工作
  */
 public abstract class BaseFragment extends Fragment {
 
@@ -28,7 +30,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public final View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = initView();
         initData();
         return view;

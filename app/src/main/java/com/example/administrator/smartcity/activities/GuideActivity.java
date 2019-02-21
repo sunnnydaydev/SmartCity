@@ -38,10 +38,7 @@ public class GuideActivity extends BaseActivity {
         viewPager.setAdapter(new GuideAdapter(mlist));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i1) {
-
-            }
-
+            public void onPageScrolled(int i, float v, int i1) {}
             @Override
             public void onPageSelected(int i) {
                 if (i == mlist.size()-1) {
@@ -56,9 +53,7 @@ public class GuideActivity extends BaseActivity {
             }
 
             @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
+            public void onPageScrollStateChanged(int i) {}
         });
     }
 
@@ -69,7 +64,7 @@ public class GuideActivity extends BaseActivity {
     private void initData() {
         img = new int[]{R.drawable.guide_1, R.drawable.guide_2, R.drawable.guide_3};
         mlist = new ArrayList<>();
-        //  ImageView imageView = new ImageView(this);下载此处时 踩过的坑
+        //  ImageView imageView = new ImageView(this);写在此处时 踩过的坑
         //java.lang.IllegalStateException: The specified child already has a parent. You must call removeView() on the child's parent first.
         for (int i = 0; i < img.length; i++) {
             ImageView imageView = new ImageView(this);
