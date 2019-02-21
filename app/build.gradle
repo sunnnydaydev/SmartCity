@@ -29,4 +29,6 @@ dependencies {
     // 黄油刀
     implementation 'com.jakewharton:butterknife:8.8.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
+    // 底部导航
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
 }

@@ -14,4 +14,9 @@ public class LeftMenuFragment extends BaseFragment {
         View view  = LayoutInflater.from(mActivity).inflate(R.layout.fragment_left,null);
         return view;
     }
+
+    @Override
+    public void initData() {
+
+    }
 }
