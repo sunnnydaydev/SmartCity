@@ -11,11 +11,14 @@
         android:layout_height="match_parent">
     </android.support.v4.view.ViewPager>
     <Button
+        android:visibility="gone"
+        android:background="@drawable/selector_start_experience"
         android:id="@+id/start_experience"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#ffffff"
         android:text="开始体验"/>
 </RelativeLayout>

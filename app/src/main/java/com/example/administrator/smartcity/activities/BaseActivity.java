@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -18,10 +19,7 @@ import butterknife.Unbinder;
 public abstract class BaseActivity extends AppCompatActivity {
     private Unbinder mBinder;
     private View mConvertView;
-
-    /**
-     * 加 final 不让子类实现此方法，只能父类进行，子类传递过来交给父类处理
-     */
+    // 不让子类重写（只让子类实现onCreate）
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public abstract void onCreate();
 
     /**
-     * 根据实现类实现的view 此处进行处理
+     * 布局处理
      */
     public View convertView() {
         View view = null;
@@ -53,6 +51,17 @@ public abstract class BaseActivity extends AppCompatActivity {
         return view;
     }
 
+    /**
+     * 全屏 且隐藏标题栏
+     * （子类需要直接使用）
+     * */
+    public void setNoTitleBarAndFullScreen() {
+        // requestWindowFeature(Window.FEATURE_NO_TITLE); 此句必须在setContent之前
+        getSupportActionBar().hide();
+        //全屏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
     @Override
     protected void onDestroy() {
         // 解绑

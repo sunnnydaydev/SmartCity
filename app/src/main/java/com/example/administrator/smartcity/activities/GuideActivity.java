@@ -1,14 +1,17 @@
 package com.example.administrator.smartcity.activities;
 
-import android.app.Activity;
+
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+
+
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.administrator.smartcity.Adapters.GuideAdapter;
 import com.example.administrator.smartcity.R;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ public class GuideActivity extends BaseActivity {
     public Button startExperience;
     private int[] img;//引导页面的图片
     private List<ImageView> mlist;
+
     @Override
     public Object getLayout() {
         return R.layout.activity_guide;
@@ -29,8 +33,33 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     public void onCreate() {
+        setNoTitleBarAndFullScreen();
         initData();
-       // viewPager.setAdapter(new GuideAdapter(mlist));
+        viewPager.setAdapter(new GuideAdapter(mlist));
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                if (i == mlist.size()-1) {
+                    startExperience.setVisibility(View.VISIBLE);
+                    startExperience.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(GuideActivity.this,MainActivity.class));
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
     }
 
     /**
@@ -40,10 +69,11 @@ public class GuideActivity extends BaseActivity {
     private void initData() {
         img = new int[]{R.drawable.guide_1, R.drawable.guide_2, R.drawable.guide_3};
         mlist = new ArrayList<>();
-        ImageView imageView = new ImageView(this);
+        //  ImageView imageView = new ImageView(this);下载此处时 踩过的坑
+        //java.lang.IllegalStateException: The specified child already has a parent. You must call removeView() on the child's parent first.
         for (int i = 0; i < img.length; i++) {
-            imageView.setBackgroundResource(img[i]);//可以使宽高填充布局
-            //imageView.setImageResource() 根据图片宽高 填充（注意区别）
+            ImageView imageView = new ImageView(this);
+            imageView.setBackgroundResource(img[i]);
             mlist.add(imageView);
         }
     }
