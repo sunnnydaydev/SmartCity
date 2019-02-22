@@ -29,6 +29,8 @@ dependencies {
     // 黄油刀
     implementation 'com.jakewharton:butterknife:8.8.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
-    // 底部导航
-    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.1.0' // 底部导航
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'// okhttp
+    implementation 'com.google.code.gson:gson:2.6.2'//Gson 库
+
 }
