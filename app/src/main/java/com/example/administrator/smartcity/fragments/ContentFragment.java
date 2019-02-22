@@ -25,6 +25,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Create by SunnyDay on 2019/02/21
  */
@@ -35,6 +37,7 @@ public class ContentFragment extends BaseFragment {
     public NoScrollViewPager mViewPager;
     private View view;
     private List<BasePage> list;
+    private DrawerLayout drawerLayout;
 
     @Override
     public View initView() {
@@ -47,6 +50,10 @@ public class ContentFragment extends BaseFragment {
         ButterKnife.bind(this, view);
         initViewPager();
         initNavagation();
+        // 手动禁掉首页的侧边栏
+        if (mViewPager.getCurrentItem()==0){
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        }
     }
 
     /**
@@ -66,6 +73,8 @@ public class ContentFragment extends BaseFragment {
      * 底部导航的操作
      */
     public void initNavagation() {
+        drawerLayout = mActivity.findViewById(R.id.drawable_layout);
+
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.home, "首页"))
                 .addItem(new BottomNavigationItem(R.drawable.newscenter, "新闻中心"))
                 .addItem(new BottomNavigationItem(R.drawable.smartservice, "智慧服务"))
@@ -79,6 +88,8 @@ public class ContentFragment extends BaseFragment {
                 if (position == 0 || position == list.size() - 1) {
                     // 首页和设置页面禁用侧边栏  也就是关闭手势滑动即可
                     setLeftMenuEnable(false);
+                }else{
+                    setLeftMenuEnable(true);
                 }
             }
 
@@ -96,8 +107,9 @@ public class ContentFragment extends BaseFragment {
      * 设置侧边栏是否可首饰滑动
      * */
     public void setLeftMenuEnable(boolean enable) {
-        DrawerLayout drawerLayout = mActivity.findViewById(R.id.drawable_layout);
-        if (!enable){
+        if (enable){
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        }else{
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
     }

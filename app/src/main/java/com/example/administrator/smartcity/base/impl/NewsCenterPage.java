@@ -20,5 +20,9 @@ public class NewsCenterPage extends BasePage {
         tv.setGravity(Gravity.CENTER);
         flLayout.addView(tv);
         tvTitle.setText("新闻中心");
+
+        // 请求网络数据
+
+        // 解析网络数据 ---传递给侧边栏
     }
 }
