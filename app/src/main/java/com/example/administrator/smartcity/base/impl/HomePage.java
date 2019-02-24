@@ -24,7 +24,7 @@ public class HomePage extends BasePage {
         tv.setTextColor(Color.RED);
         tv.setGravity(Gravity.CENTER);
         flLayout.addView(tv);
-        tvTitle.setText("智慧北京");
+        tvTitle.setText("智慧城市");
         btnMenu.setVisibility(View.GONE);
     }
 }

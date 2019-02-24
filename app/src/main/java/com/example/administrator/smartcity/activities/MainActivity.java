@@ -34,12 +34,21 @@ public class MainActivity extends BaseActivity {
 
     /**
      * 动态添加fragment
-     * */
+     */
     public void initFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.layout_main,new ContentFragment());
-        fragmentTransaction.replace(R.id.layout_left_menu,new LeftMenuFragment());
+        fragmentTransaction.replace(R.id.layout_main, new ContentFragment(), "CONTENT_FRAGMENT");
+        fragmentTransaction.replace(R.id.layout_left_menu, new LeftMenuFragment(), "LEFT_FRAGMENT");
         fragmentTransaction.commit();
+    }
+
+    /**
+     * 提供侧边栏的方法   activity为桥梁
+     * */
+    public LeftMenuFragment getLeftMenuFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        LeftMenuFragment leftMenuFragment = (LeftMenuFragment) fragmentManager.findFragmentByTag("LEFT_FRAGMENT");
+        return leftMenuFragment;
     }
 }
