@@ -29,8 +29,8 @@ import okhttp3.Response;
 /**
  * Create by SunnyDay on 2019/02/21
  */
-public class SmartServicePage extends BasePage {
-    public SmartServicePage(Activity activity) {
+public class PhotoPage extends BasePage {
+    public PhotoPage(Activity activity) {
         super(activity);
     }
 

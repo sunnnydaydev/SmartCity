@@ -1,9 +1,6 @@
 package com.example.administrator.smartcity.fragments;
 
-import android.graphics.Color;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -16,7 +13,7 @@ import com.example.administrator.smartcity.base.impl.GovAffairsPage;
 import com.example.administrator.smartcity.base.impl.HomePage;
 import com.example.administrator.smartcity.base.impl.NewsCenterPage;
 import com.example.administrator.smartcity.base.impl.SettingPage;
-import com.example.administrator.smartcity.base.impl.SmartServicePage;
+import com.example.administrator.smartcity.base.impl.PhotoPage;
 import com.example.administrator.smartcity.views.NoScrollViewPager;
 
 import java.util.ArrayList;
@@ -24,8 +21,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Create by SunnyDay on 2019/02/21
@@ -63,7 +58,7 @@ public class ContentFragment extends BaseFragment {
         list = new ArrayList<>();
         list.add(new HomePage(mActivity));
         list.add(new NewsCenterPage(mActivity));
-        list.add(new SmartServicePage(mActivity));
+        list.add(new PhotoPage(mActivity));
         list.add(new GovAffairsPage(mActivity));
         list.add(new SettingPage(mActivity));
         mViewPager.setAdapter(new ContentAadpter(list));
