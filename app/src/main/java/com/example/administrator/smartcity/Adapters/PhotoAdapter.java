@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.smartcity.R;
 import com.example.administrator.smartcity.domain.Photo;
 
@@ -19,7 +20,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyViewHolder
     private Photo photo;
     private Context context;
 
-    public PhotoAdapter(Photo photo,Context context) {
+    public PhotoAdapter(Photo photo, Context context) {
         this.photo = photo;
         this.context = context;
     }
@@ -27,19 +28,23 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyViewHolder
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_photo,null);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_photo, null);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-
+        myViewHolder.name.setText(photo.getResults().get(i).getWho());
+        myViewHolder.desc.setText(photo.getResults().get(i).getDesc());
+        Glide.with(context)
+                .load(photo.getResults().get(i).getUrl())
+                .into(myViewHolder.imageView);
     }
 
     @Override
     public int getItemCount() {
         int size = photo.getResults().size();
-        return size == 0 ? 0 : size;
+        return photo.getResults() == null ? 0 : size;
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

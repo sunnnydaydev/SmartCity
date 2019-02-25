@@ -1,6 +1,7 @@
 package com.example.administrator.smartcity.base.impl;
 
 import android.app.Activity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -38,8 +39,8 @@ public class SmartServicePage extends BasePage {
         tvTitle.setText("组图");
         // 组图模块开发
         final RecyclerView recyclerView = new RecyclerView(activity);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager manager = new GridLayoutManager(activity,2);
+        recyclerView.setLayoutManager(manager);
         // 请求数据
         HttpUtils.OkHttp(GlobalConstant.PHOTO, new Callback() {
             @Override
