@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.smartcity.R;
 import com.example.administrator.smartcity.domain.NewsCenter;
@@ -32,8 +33,15 @@ public class LeftMenuAdapter extends RecyclerView.Adapter<LeftMenuAdapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-                myViewHolder.textView.setText(mNewsCenter.getData().get(i).getTitle());
+    public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, int i) {
+        myViewHolder.textView.setText(mNewsCenter.getData().get(i).getTitle());
+        myViewHolder.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext,  myViewHolder.textView.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

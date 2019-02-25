@@ -45,10 +45,19 @@ public class MainActivity extends BaseActivity {
 
     /**
      * 提供侧边栏的方法   activity为桥梁
-     * */
+     */
     public LeftMenuFragment getLeftMenuFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         LeftMenuFragment leftMenuFragment = (LeftMenuFragment) fragmentManager.findFragmentByTag("LEFT_FRAGMENT");
         return leftMenuFragment;
+    }
+
+    /**
+     * 主界面的fragment实例
+     */
+    public ContentFragment getContentFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        ContentFragment contentFragment = (ContentFragment) fragmentManager.findFragmentByTag("CONTENT_FRAGMENT");
+        return contentFragment;
     }
 }

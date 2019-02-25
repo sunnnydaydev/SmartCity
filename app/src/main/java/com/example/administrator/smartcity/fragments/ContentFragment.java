@@ -77,7 +77,7 @@ public class ContentFragment extends BaseFragment {
 
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.home, "首页"))
                 .addItem(new BottomNavigationItem(R.drawable.newscenter, "新闻中心"))
-                .addItem(new BottomNavigationItem(R.drawable.smartservice, "智慧服务"))
+                .addItem(new BottomNavigationItem(R.drawable.smartservice, "组图"))
                 .addItem(new BottomNavigationItem(R.drawable.govaffairs, "政务"))
                 .addItem(new BottomNavigationItem(R.drawable.setting, "设置"))
                 .initialise();

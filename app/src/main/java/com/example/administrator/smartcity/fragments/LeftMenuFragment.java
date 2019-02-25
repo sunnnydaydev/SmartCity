@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.administrator.smartcity.Adapters.LeftMenuAdapter;
 import com.example.administrator.smartcity.R;
@@ -38,7 +39,8 @@ public class LeftMenuFragment extends BaseFragment {
 
     public void setMenuData(NewsCenter newsCenter) {
         mNewsCenter = newsCenter;
-        // 注意setAdapter的位置
-        recyclerView.setAdapter(new LeftMenuAdapter(mActivity,mNewsCenter));
+        // 注意setAdapter的位置  在此处 否则mNewsCenter 空值（此处可以直接使用newsCenter）
+        recyclerView.setAdapter(new LeftMenuAdapter(mActivity, mNewsCenter));
+
     }
 }

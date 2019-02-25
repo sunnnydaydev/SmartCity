@@ -47,7 +47,7 @@ public class NewsCenterPage extends BasePage {
 
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
-                // TODO 解析网络数据 ---传递给侧边栏
+                // 解析网络数据 ---传递给侧边栏
                 // Log.i(TAG, "onResponse: "+response.body().string());
                 final String json = response.body().string();
                 activity.runOnUiThread(new Runnable() {
