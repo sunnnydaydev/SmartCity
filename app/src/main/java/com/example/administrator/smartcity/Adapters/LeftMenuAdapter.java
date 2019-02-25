@@ -38,7 +38,7 @@ public class LeftMenuAdapter extends RecyclerView.Adapter<LeftMenuAdapter.MyView
         myViewHolder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,  myViewHolder.textView.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,  myViewHolder.textView.getText().toString()+"待续！！！", Toast.LENGTH_SHORT).show();
             }
         });
 

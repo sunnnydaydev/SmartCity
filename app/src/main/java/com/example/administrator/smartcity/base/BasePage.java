@@ -1,6 +1,9 @@
 package com.example.administrator.smartcity.base;
 
 import android.app.Activity;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -36,6 +39,13 @@ public class BasePage {
         View view = View.inflate(activity, R.layout.base_page, null);
         tvTitle = view.findViewById(R.id.tv_title);
         btnMenu = view.findViewById(R.id.menu);
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             DrawerLayout drawerLayout = activity.findViewById(R.id.drawable_layout);
+             drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
         flLayout = view.findViewById(R.id.fl_layout);
         return view;
     }

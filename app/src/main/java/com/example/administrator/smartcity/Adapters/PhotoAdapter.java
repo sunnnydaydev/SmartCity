@@ -38,6 +38,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.MyViewHolder
         myViewHolder.desc.setText(photo.getResults().get(i).getDesc());
         Glide.with(context)
                 .load(photo.getResults().get(i).getUrl())
+//                .placeholder(R.drawable.default_photo)
                 .into(myViewHolder.imageView);
     }
 

@@ -6,13 +6,5 @@
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
-    <ImageView
-        android:id="@+id/test"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="测试数据"/>
-
+        android:layout_height="200dp" />
 </LinearLayout>
