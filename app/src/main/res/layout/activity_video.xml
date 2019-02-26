@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#696969"
     android:orientation="vertical"
     tools:context="com.example.administrator.smartcity.activities.VideoActivity">
 
@@ -36,6 +35,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="退出"/>
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="分享"/>
     </LinearLayout>
 
 </LinearLayout>

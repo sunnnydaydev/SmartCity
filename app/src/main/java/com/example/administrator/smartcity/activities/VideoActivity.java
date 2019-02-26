@@ -20,6 +20,7 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener 
     private Button btnStart;
     private Button btnPause;
     private Button btnBack;
+    private Button btnShare;
     private String url;
 
     @Override
@@ -39,6 +40,7 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener 
         btnStart = findViewById(R.id.btn_pause);
         btnPause = findViewById(R.id.btn_start);
         btnBack = findViewById(R.id.btn_back);
+        btnShare = findViewById(R.id.btn_share);
 
         videoView.setVideoPath(url);
 
