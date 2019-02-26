@@ -8,7 +8,7 @@
     tools:context="com.example.administrator.smartcity.activities.VideoActivity">
 
     <VideoView
-        android:id="@+id/video_view"
+        android:id="@+id/vv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
@@ -19,16 +19,19 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/btn_start"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="开始"/>
         <Button
+            android:id="@+id/btn_pause"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="暂停"/>
         <Button
+            android:id="@+id/btn_back"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
