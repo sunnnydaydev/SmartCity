@@ -9,7 +9,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.example.administrator.smartcity.Adapters.ContentAadpter;
 import com.example.administrator.smartcity.R;
 import com.example.administrator.smartcity.base.BasePage;
-import com.example.administrator.smartcity.base.impl.GovAffairsPage;
+import com.example.administrator.smartcity.base.impl.VideoPage;
 import com.example.administrator.smartcity.base.impl.HomePage;
 import com.example.administrator.smartcity.base.impl.NewsCenterPage;
 import com.example.administrator.smartcity.base.impl.SettingPage;
@@ -59,7 +59,7 @@ public class ContentFragment extends BaseFragment {
         list.add(new HomePage(mActivity));
         list.add(new NewsCenterPage(mActivity));
         list.add(new PhotoPage(mActivity));
-        list.add(new GovAffairsPage(mActivity));
+        list.add(new VideoPage(mActivity));
         list.add(new SettingPage(mActivity));
         mViewPager.setAdapter(new ContentAadpter(list));
     }
