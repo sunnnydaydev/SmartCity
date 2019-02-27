@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.example.administrator.smartcity.Adapters.LeftMenuAdapter;
 import com.example.administrator.smartcity.R;
 import com.example.administrator.smartcity.activities.MainActivity;
@@ -67,5 +68,8 @@ public class LeftMenuFragment extends BaseFragment {
         // 关闭当前
         DrawerLayout drawerLayout = activity.findViewById(R.id.drawable_layout);
         drawerLayout.closeDrawer(Gravity.START);
+        // 重置按钮
+        BottomNavigationBar bottomNavigationBar = activity.findViewById(R.id.bottom_navigation);
+        bottomNavigationBar.selectTab(4);
     }
 }
