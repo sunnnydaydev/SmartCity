@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.example.administrator.smartcity.R;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
  * Create by SunnyDay on 2019/02/20
@@ -20,6 +23,7 @@ import butterknife.Unbinder;
 public abstract class BaseActivity extends AppCompatActivity {
     private Unbinder mBinder;
     private View mConvertView;
+
     // 不让子类重写（只让子类实现onCreate）
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,7 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 全屏 且隐藏标题栏
      * （子类需要直接使用）
-     * */
+     */
     public void setNoTitleBarAndFullScreen() {
         // requestWindowFeature(Window.FEATURE_NO_TITLE); 此句必须在setContent之前
         getSupportActionBar().hide();
@@ -63,16 +67,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
+
     /**
-     *沉浸式状态栏
-     * */
-    public void setImmersionStatusBar(){
+     * 沉浸式状态栏
+     */
+    public void setImmersionStatusBar() {
         getSupportActionBar().hide();
         View decorView = getWindow().getDecorView();
-        int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+        int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
         decorView.setSystemUiVisibility(option);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
     }
+
     @Override
     protected void onDestroy() {
         // 解绑
@@ -82,5 +88,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
         mConvertView = null; // call gc
         super.onDestroy();
+    }
+
+    /**
+     * shareSDK分享
+     */
+    public void showShare(String url) {
+        OnekeyShare oks = new OnekeyShare();
+//关闭sso授权
+        oks.disableSSOWhenAuthorize();
+        oks.setTitle("给你分享个好看的视屏");// title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
+        oks.setTitleUrl(url);// titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setText("给你分享个好看的视屏");// text是分享文本，所有平台都需要这个字段
+       // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+       //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        oks.setUrl(url);// url仅在微信（包括好友和朋友圈）中使用
+        oks.setComment("我是测试评论文本");// comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setSite(getString(R.string.app_name));// site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSiteUrl(url);// siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.show(this);// 启动分享GUI
     }
 }

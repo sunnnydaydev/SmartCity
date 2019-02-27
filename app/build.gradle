@@ -41,4 +41,21 @@ dependencies {
     //banner 轮播
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'com.charonchui.vitamio:vitamio:4.2.2'
+    implementation files('libs/MobCommons-2019.0225.1518.jar')
+    implementation files('libs/MobTools-2019.0221.2219.jar')
+    implementation files('libs/ShareSDK-Alipay-3.5.0.jar')
+    implementation files('libs/ShareSDK-Alipay-Core-3.5.0.jar')
+    implementation files('libs/ShareSDK-Alipay-Moments-3.5.0.jar')
+    implementation files('libs/ShareSDK-Core-3.5.0.jar')
+    implementation files('libs/ShareSDK-Douban-3.5.0.jar')
+    implementation files('libs/ShareSDK-Email-3.5.0.jar')
+    implementation files('libs/ShareSDK-QQ-3.5.0.jar')
+    implementation files('libs/ShareSDK-QZone-3.5.0.jar')
+    implementation files('libs/ShareSDK-ShortMessage-3.5.0.jar')
+    implementation files('libs/ShareSDK-SinaWeibo-3.5.0.jar')
+    implementation files('libs/ShareSDK-Wechat-3.5.0.jar')
+    implementation files('libs/ShareSDK-Wechat-Core-3.5.0.jar')
+    implementation files('libs/ShareSDK-Wechat-Favorite-3.5.0.jar')
+    implementation files('libs/ShareSDK-Wechat-Moments-3.5.0.jar')
+    implementation files('libs/ShareSDK-YouDao-3.5.0.jar')
 }
