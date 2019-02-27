@@ -3,15 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
     <TextView
+
+        android:drawableLeft="@drawable/menu_arr_select"
         android:id="@+id/tv_text"
         android:paddingTop="10dp"
         android:textSize="22sp"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:text="测试"
         android:gravity="center"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
 </LinearLayout>

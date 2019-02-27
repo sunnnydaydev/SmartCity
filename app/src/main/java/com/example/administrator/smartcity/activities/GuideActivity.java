@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.example.administrator.smartcity.Adapters.GuideAdapter;
 import com.example.administrator.smartcity.R;
+import com.example.administrator.smartcity.utils.SpUtil.SpUtil;
 
 
 import java.util.ArrayList;
@@ -33,28 +34,36 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     public void onCreate() {
-        setNoTitleBarAndFullScreen();
-        initData();
-        viewPager.setAdapter(new GuideAdapter(mlist));
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {}
-            @Override
-            public void onPageSelected(int i) {
-                if (i == mlist.size()-1) {
-                    startExperience.setVisibility(View.VISIBLE);
-                    startExperience.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(GuideActivity.this,MainActivity.class));
-                        }
-                    });
-                }
-            }
+       boolean isfirst = SpUtil.getBoolean(this,"first",true);
+       if (isfirst){
+           setNoTitleBarAndFullScreen();
+           initData();
+           viewPager.setAdapter(new GuideAdapter(mlist));
+           viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+               @Override
+               public void onPageScrolled(int i, float v, int i1) {}
+               @Override
+               public void onPageSelected(int i) {
+                   if (i == mlist.size()-1) {
+                       startExperience.setVisibility(View.VISIBLE);
+                       startExperience.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View v) {
+                               startActivity(new Intent(GuideActivity.this,MainActivity.class));
+                               finish();
+                           }
+                       });
+                   }
+               }
 
-            @Override
-            public void onPageScrollStateChanged(int i) {}
-        });
+               @Override
+               public void onPageScrollStateChanged(int i) {}
+           });
+           SpUtil.putBoolean(this,"first",false);
+       }else{
+           finish();
+       }
+
     }
 
     /**
@@ -72,4 +81,5 @@ public class GuideActivity extends BaseActivity {
             mlist.add(imageView);
         }
     }
+
 }

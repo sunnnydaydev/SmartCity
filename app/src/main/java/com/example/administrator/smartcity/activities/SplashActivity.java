@@ -86,12 +86,14 @@ public class SplashActivity extends BaseActivity {
                 boolean isFirstEnter = SpUtil.getBoolean(SplashActivity.this, "is_first_enter", true);
                 //判断是否第一次进入
                 startActivity(new Intent(SplashActivity.this, GuideActivity.class));
-//                if (isFirstEnter) {
-//                    startActivity(new Intent(SplashActivity.this, GuideActivity.class));
-//                    SpUtil.putBoolean(SplashActivity.this, "is_first_enter", false);
-//                } else {
-//                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-//                }
+                if (isFirstEnter) {
+                    startActivity(new Intent(SplashActivity.this, GuideActivity.class));
+                    SpUtil.putBoolean(SplashActivity.this, "is_first_enter", false);
+                    finish();
+                } else {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                }
             }
 
             @Override
