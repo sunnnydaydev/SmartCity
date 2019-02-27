@@ -41,6 +41,7 @@ dependencies {
     //banner 轮播
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'com.charonchui.vitamio:vitamio:4.2.2'
+    //share sdk
     implementation files('libs/MobCommons-2019.0225.1518.jar')
     implementation files('libs/MobTools-2019.0221.2219.jar')
     implementation files('libs/ShareSDK-Alipay-3.5.0.jar')
@@ -58,4 +59,6 @@ dependencies {
     implementation files('libs/ShareSDK-Wechat-Favorite-3.5.0.jar')
     implementation files('libs/ShareSDK-Wechat-Moments-3.5.0.jar')
     implementation files('libs/ShareSDK-YouDao-3.5.0.jar')
+
+    implementation 'de.hdodenhof:circleimageview:3.0.0'//
 }

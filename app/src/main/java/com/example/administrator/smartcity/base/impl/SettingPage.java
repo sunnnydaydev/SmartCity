@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.administrator.smartcity.R;
 import com.example.administrator.smartcity.base.BasePage;
 
 /**
@@ -16,11 +17,13 @@ public class SettingPage extends BasePage {
     }
     @Override
     public void initData() {
-        TextView tv = new TextView(activity);
-        tv.setText("设置");
-        tv.setGravity(Gravity.CENTER);
-        flLayout.addView(tv);
         tvTitle.setText("设置");
         btnMenu.setVisibility(View.GONE);
+        View view = View.inflate(activity,R.layout.page_setting,null);
+
+
+        flLayout.addView(view);
+
+
     }
 }
