@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingLeft="5dp"
-    android:paddingRight="5dp">
+    android:paddingRight="5dp"
+    android:background="#ffffff"
+    android:id="@+id/rl_layout">
+
+    <!-- 分割线 没啥其他用途-->
+    <TextView
+        android:background="#ccc"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
 
     <TextView
         android:id="@+id/text"
@@ -23,13 +33,15 @@
         android:src="@drawable/news_cate_arr" />
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:visibility="invisible"
         android:id="@+id/img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/ib"
         android:paddingRight="5dp"
         android:src="@drawable/qq"
         android:text="测试数据" />
+    <!--  注意 上面细节 使用了 invisiable 而不用gone的区别-->
 </RelativeLayout>

@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#ccc"
+        android:orientation="vertical">
 
+        <com.example.administrator.smartcity.views.SettingView
+            android:id="@+id/account_manager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="自定义属性1"
+            app:showRightPic="true"
+            app:rightPic="@drawable/qq"/>
+
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="自定义属性3"/>
+
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="自定义属性2"/>
     </LinearLayout>
 
 </ScrollView>

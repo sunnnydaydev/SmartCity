@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  1、  声明给哪个自定义控件 添加属性新的-->
+    <declare-styleable name="SettingView">
+        <!-- 2 、属性定义 -->
+        <attr name="leftText" format="string" />
+        <attr name="showRightPic" format="boolean"/>
+        <attr name="showRightText" format="boolean"/>
+
+        <attr name="rightPic" format="reference"/>
+    </declare-styleable>
+
+</resources>
