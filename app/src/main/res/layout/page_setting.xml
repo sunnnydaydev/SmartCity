@@ -14,21 +14,89 @@
             android:id="@+id/account_manager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftText="自定义属性1"
+            app:leftText="账号管理"
             app:showRightPic="true"
-            app:rightPic="@drawable/qq"/>
+            app:rightPic="@drawable/timg" />
 
         <com.example.administrator.smartcity.views.SettingView
+            android:id="@+id/share"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftText="自定义属性3"
+            app:leftText="推广本产品" />
+
+        <com.example.administrator.smartcity.views.SettingView
+            android:id="@+id/about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="关于本项目"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:id="@+id/remove_cache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="清除缓存"
             app:showRightText="true"
-            app:rightText="20M"/>
+            app:rightText="12M"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:id="@+id/amost_setting"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="通用设置"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="隐私设置"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="推送设置"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="帮助与反馈"/>
 
         <com.example.administrator.smartcity.views.SettingView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftText="自定义属性2"/>
+            app:leftText="测试数据1"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据2"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据3"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据4"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据5"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据6"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据7"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据8"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据9"/>
+        <com.example.administrator.smartcity.views.SettingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:leftText="测试数据"/>
     </LinearLayout>
 
 </ScrollView>
