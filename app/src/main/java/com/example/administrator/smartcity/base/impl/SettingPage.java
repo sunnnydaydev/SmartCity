@@ -23,6 +23,7 @@ public class SettingPage extends BasePage implements View.OnClickListener {
 
     @Override
     public void initData() {
+
         tvTitle.setText("设置");
         btnMenu.setVisibility(View.GONE);
         // 设置界面的view  （内部使用自定义）
