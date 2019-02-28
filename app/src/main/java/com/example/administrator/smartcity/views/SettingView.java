@@ -1,7 +1,9 @@
 package com.example.administrator.smartcity.views;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -35,6 +37,7 @@ public class SettingView extends LinearLayout {
 
     private TextView leftText;
     private CircleImageView headPortrait;
+    private TextView rightText;
 
     @RequiresApi(api = Build.VERSION_CODES.P)
     public SettingView(Context context) {
@@ -55,8 +58,9 @@ public class SettingView extends LinearLayout {
 
         leftText = view.findViewById(R.id.text);
         headPortrait = view.findViewById(R.id.img);
+        rightText = view.findViewById(R.id.right_text);
 
-        initSelfAttrs(attrs);
+        initSelfAttrs(attrs, context);
 
         this.addView(view);
     }
@@ -66,30 +70,69 @@ public class SettingView extends LinearLayout {
      *
      * @param attrs 属性集合
      */
-    private void initSelfAttrs(AttributeSet attrs) {
+    private void initSelfAttrs(AttributeSet attrs, Context context) {
         // 1 左侧text的xml设置
         String leftText = attrs.getAttributeValue(NAME_SPACE, "leftText");
         setLeftText(leftText);
-        // 2 圆头像 xml实现
-        Integer resourceId = attrs.getAttributeIntValue(NAME_SPACE,"rightPic",0);
+
+        // 获得xml中设置 showRightPic 属性值 默认 false
         boolean showRightPic = attrs.getAttributeBooleanValue(NAME_SPACE, "showRightPic", false);
-        if (showRightPic){
-            headPortrait.setVisibility(VISIBLE);
-            setHeadPortrait(resourceId);
+        boolean showRightText = attrs.getAttributeBooleanValue(NAME_SPACE, "showRightText", false);
+
+        // 3 右面text的设置
+        if (showRightText){
+            rightText.setVisibility(VISIBLE);
+            String rightText = attrs.getAttributeValue(NAME_SPACE, "rightText");
+            setRightText(rightText);
         }
+        // 图片的设置还是使用TypeArray 获取设置
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SettingView);//参见你的attrs中定义<declare-styleable name="SettingView">
+        for (int i = 0; i < typedArray.getIndexCount(); i++) {
+            int index = typedArray.getIndex(i);
+            switch (index) {
+                //1  左侧文本的xml设置（使用这种方式也行）
+//                case R.styleable.SettingView_leftText:
+//                    String leftText  = typedArray.getString(index);
+//                    setLeftText(leftText);
+//                    break;
+                case R.styleable.SettingView_rightPic:
+                    // 2 右侧图片的显示
+                    if (showRightPic) {
+                        headPortrait.setVisibility(VISIBLE);
+                        Drawable drawable = typedArray.getDrawable(index);
+                        setHeadPortrait(drawable);
+                    }
+
+                    break;
+            }
+        }
+        typedArray.recycle();//回收
     }
 
     /**
      * 设置左侧文字的内容
+     * @param text  要设置的字符串
      */
     public void setLeftText(String text) {
         leftText.setText(text);
     }
 
     /**
+     * 设置右面侧文字的内容
+     * @param text  要设置的字符串
+     *
+     * 注意使用时要控件显示，由于xml属性原因默认隐藏的
+     */
+    public void setRightText(String text){
+        rightText.setText(text);
+    }
+
+    /**
      * 设置头像
      *
      * @param imgType 图片的类型
+     *
+     *                注意使用时要控件显示，由于xml属性原因默认隐藏的
      */
     public void setHeadPortrait(Object imgType) {
         if (imgType instanceof Drawable) {

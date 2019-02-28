@@ -21,7 +21,9 @@
         <com.example.administrator.smartcity.views.SettingView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftText="自定义属性3"/>
+            app:leftText="自定义属性3"
+            app:showRightText="true"
+            app:rightText="20M"/>
 
         <com.example.administrator.smartcity.views.SettingView
             android:layout_width="match_parent"

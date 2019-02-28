@@ -2,12 +2,20 @@
 <resources>
     <!--  1、  声明给哪个自定义控件 添加属性新的-->
     <declare-styleable name="SettingView">
-        <!-- 2 、属性定义 -->
-        <attr name="leftText" format="string" />
-        <attr name="showRightPic" format="boolean"/>
-        <attr name="showRightText" format="boolean"/>
+        <!-- 2 、属性定义（解释如下） -->
 
+        <!-- 定义属性名为leftText，属性值为String类型-->
+        <attr name="leftText" format="string" />
+
+        <!-- 定义属性名为showRightPic，属性值为布尔类型-->
+        <attr name="showRightPic" format="boolean"/>
+        <!-- 定义属性名为rightPic，属性值为引用类型，简单地说就是可以使用用资源id的形式（R.xxx.xxx）-->
         <attr name="rightPic" format="reference"/>
+
+        <attr name="showRightText" format="boolean"/>
+        <attr name="rightText" format="string"/>
+
+
     </declare-styleable>
 
 </resources>
