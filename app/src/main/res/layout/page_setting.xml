@@ -28,7 +28,7 @@
             android:id="@+id/about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:leftText="关于本项目"/>
+            app:leftText="用户须知"/>
         <com.example.administrator.smartcity.views.SettingView
             android:id="@+id/remove_cache"
             android:layout_width="match_parent"
