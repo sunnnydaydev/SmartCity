@@ -56,6 +56,9 @@
 7 第三方集成比如[shareSdk](https://blog.csdn.net/qq_38350635/article/details/87969785)
 8 页面的跳转事件的处理可以学习下路由，和eventBus这个在下个开源电商中再实践。
 
+###### 自定义通用View
+[参考](https://blog.csdn.net/qq_38350635/article/details/88040908)
+
 ###### 三 资源链接
 >1 [玩安卓](http://www.wanandroid.com/index)对于安卓开发来说不错的网站，作者的mock数据就借助了此网站。
 > 2 进阶书籍推荐 安卓开发艺术探讨，深入理解jvm 、headFirst设计模式、java编程思想，effect java 作者买了这些书，正在慢慢地肯哈。
