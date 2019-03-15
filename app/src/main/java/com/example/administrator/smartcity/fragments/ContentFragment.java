@@ -22,6 +22,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.ashokvarma.bottomnavigation.BottomNavigationBar.BACKGROUND_STYLE_RIPPLE;
+
 /**
  * Create by SunnyDay on 2019/02/21
  */
@@ -70,7 +72,12 @@ public class ContentFragment extends BaseFragment {
     public void initNavagation() {
         drawerLayout = mActivity.findViewById(R.id.drawable_layout);
 
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.home, "首页"))
+        bottomNavigationBar
+                .setBackgroundStyle(BACKGROUND_STYLE_RIPPLE)  // 点击样式
+                .setBarBackgroundColor(R.color.orange) // 字体 、图标 背景颜色
+                .setInActiveColor(R.color.gray) // 未选中状态颜色
+                .setActiveColor(R.color.white) // 条目背景色
+                .addItem(new BottomNavigationItem(R.drawable.home, "首页"))
                 .addItem(new BottomNavigationItem(R.drawable.newscenter, "新闻中心"))
                 .addItem(new BottomNavigationItem(R.drawable.smartservice, "组图"))
                 .addItem(new BottomNavigationItem(R.drawable.govaffairs, "快看"))

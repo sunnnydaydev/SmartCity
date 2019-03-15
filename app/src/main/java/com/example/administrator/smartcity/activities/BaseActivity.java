@@ -62,14 +62,14 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void setNoTitleBarAndFullScreen() {
         // requestWindowFeature(Window.FEATURE_NO_TITLE); 此句必须在setContent之前
-        getSupportActionBar().hide();
-        //全屏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        getSupportActionBar().hide();// 标题栏的隐藏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, //全屏处理
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     /**
      * 沉浸式状态栏
+     *
      */
     public void setImmersionStatusBar() {
         getSupportActionBar().hide();
